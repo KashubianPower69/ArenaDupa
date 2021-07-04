@@ -17,7 +17,7 @@ public class StarShip {
         int guns = getGuns();
         double fireRatio = amunicja.getFireRatio();
 
-        System.out.println(getName() + " strzela");
+        System.out.println(getName() + " strzela"); //cipa
 
         double critCheck = (double) (Math.random()); //cyce dupa
 
