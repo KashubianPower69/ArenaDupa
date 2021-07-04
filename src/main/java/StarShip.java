@@ -19,7 +19,7 @@ public class StarShip {
 
         System.out.println(getName() + " strzela");
 
-        double critCheck = (double) (Math.random());
+        double critCheck = (double) (Math.random()); //cyce dupa
 
         if (amunicja.getCrit() > critCheck) {
             System.out.println("Trafienie krytyczne!");
