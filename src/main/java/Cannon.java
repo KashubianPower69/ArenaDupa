@@ -7,13 +7,13 @@ public class Cannon {
     private double accuracy;
     //private double fireRatio;
     private int focusFire = 0;
-    private int numberOfShells = 5;
+    private int numberOfShells = 3;
     private List<Shell> shells = new ArrayList<>();
 
     public Cannon(String cannonName, double accuracy) {
         this.cannonName = cannonName;
         this.accuracy = accuracy;
-        //this.fireRatio = fireRatio;
+        //this.fireRatio = fireRatio; no i trzeba w konstruktorze dodać wtedy oraz get i set
         System.out.println("utowrzono " + cannonName);
         shellMaker();
 
@@ -55,15 +55,7 @@ public class Cannon {
         this.accuracy = accuracy;
     }
 
-   /* public double getFireRatio() {
-        return fireRatio;
-    }
-
-    public void setFireRatio(double fireRatio) {
-        this.fireRatio = fireRatio;
-    }*/
-
-    public int getFocusFire() {
+      public int getFocusFire() {
         return focusFire;
     }
 

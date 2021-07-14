@@ -8,32 +8,49 @@ public class StarShip {
     private int numberOfCannons;
     private char cannonType;
     private int aimX = 0;
-    private int postitionX;
+    private int positionX;
     private boolean isDestroyed = false;
-    private List<Cannon> cannons = new ArrayList<>();
+    private final List<Cannon> cannons = new ArrayList<>();
 
 
-    public StarShip(String shipName, int hp, int numberOfCannons, char cannonType, int postitionX) {
+    public StarShip(String shipName, int hp, int numberOfCannons, char cannonType, int positionX) {
         this.shipName = shipName;
         this.hp = hp;
         this.numberOfCannons = numberOfCannons;
         this.cannonType = cannonType;
+        this.positionX = positionX;
         System.out.println("Utworzono " + shipName);
         cannonMaker();
     }
 
-    private void cannonMaker() {
-
-        for (int i = 0; i < getNumberOfCannons(); i++) {
-            Cannon cannon = new Cannon("Działo" + (i + 1), 0.6);
-            cannons.add(cannon);
-
+    public void moveShip() {
+        System.out.print(shipName +" zmienia pozycję z " + positionX + " X ");
+        if (positionX > 1) {
+            setPostitionX(positionX - 1); //tutaj lepiej bez settera?
+        } else if (positionX < -1) {
+            setPostitionX(positionX + 1);
         }
-
+        System.out.println("na pozycję " + positionX + " X");
     }
 
+    private void cannonMaker() {
+        for (int i = 0; i < getNumberOfCannons(); i++) {
+            Cannon cannon = new Cannon("Działo" + (i + 1), 0);
+            cannons.add(cannon);
+            if (cannonType == 'a') {
+                cannon.setAccuracy(0.8);
+            } else if (cannonType == 'b') {
+                cannon.setAccuracy(0.7);
+            } else {
+                cannon.setAccuracy(0.6);
+            }
+        }
+    }
+
+
     public void aim() {
-        System.out.println(shipName + " celuje na " + getAimX() + " ");
+        // ????
+        System.out.println(shipName + " celuje na pozycję " + aimX + " X");
         for (Cannon cannon : cannons) { //gdybym chciał System.out.println(cannons.get(cannons.indexOf(cannon))); to jak override?
             cannon.setFocusFire(aimX);
         }
@@ -51,11 +68,11 @@ public class StarShip {
     }
 
     public int getPostitionX() {
-        return postitionX;
+        return positionX;
     }
 
     public void setPostitionX(int postitionX) {
-        this.postitionX = postitionX;
+        this.positionX = postitionX;
     }
 
     public int getAimX() {

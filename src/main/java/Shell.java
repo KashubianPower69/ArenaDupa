@@ -7,7 +7,7 @@ public class Shell {
         this.shellName = shellName;
         this.avDmg = avDmg;
         this.crit = crit;
-        System.out.println("utowrzono " + shellName);
+        System.out.println("utowrzono " + shellName + " ");
     }
 
     public String getShellName() {
